@@ -5,6 +5,7 @@ public:
         int end = s.size()-1;
         while(start<=end){
             if(s[start]!=s[end]){
+                //partitioning string and sending it through another palindrome checker
                 return palhelp(s,start+1,end) || palhelp(s,start,end-1);
             }
             start++;
