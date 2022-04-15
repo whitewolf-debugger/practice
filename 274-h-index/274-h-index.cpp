@@ -13,7 +13,7 @@ public:
         int R = n;
         int ans=0;
         while(L<=R){
-            int p = L +(R-L)/2;
+            int p = (L + R)/2;
             if(isValid(citations, p)){
                 ans =p;
                 L =p+1;
