@@ -3,7 +3,9 @@ public:
     bool isValid(vector<int>& citations, int M){
         int good =0;
         for(int x : citations){
-            if(x>=M) good++;
+            if(x>=M){
+                good++;
+            }
         }
         return good>=M;
     }
@@ -13,11 +15,13 @@ public:
         int R = n;
         int ans=0;
         while(L<=R){
+            //binary search
             int p = (L + R)/2;
             if(isValid(citations, p)){
                 ans =p;
                 L =p+1;
-            }else{
+            }
+            else{
                 R = p-1;
             }
         }
