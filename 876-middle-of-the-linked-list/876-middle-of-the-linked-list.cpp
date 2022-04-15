@@ -23,9 +23,11 @@ public:
             slow = slow->next;
             fast=fast->next->next;
         }
+        // return next of slow pointer if even
         if(count%2==0){
             return slow->next;
         }
+        //returns slow pointer if odd number of elements are present
         return slow;
     }
 };
