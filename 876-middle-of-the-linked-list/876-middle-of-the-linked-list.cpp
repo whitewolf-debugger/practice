@@ -13,7 +13,7 @@ public:
     ListNode* middleNode(ListNode* head) {
         ListNode* slow = head;
         ListNode * temp = head;
-        int count=0;
+        int count=1;
         ListNode* fast = head;
         while(temp->next!=NULL){
             count++;
@@ -24,8 +24,8 @@ public:
             fast=fast->next->next;
         }
         if(count%2==0){
-            return slow;
+            return slow->next;
         }
-        return slow->next;
+        return slow;
     }
 };
