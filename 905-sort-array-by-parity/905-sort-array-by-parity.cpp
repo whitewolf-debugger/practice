@@ -12,6 +12,7 @@ public:
                 odd.push_back(nums[i]);
             }
         }
+        //concatinating 2 vectors
         eve.insert(eve.end(),odd.begin(),odd.end());
         return eve;
     }
