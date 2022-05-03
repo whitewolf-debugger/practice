@@ -50,7 +50,6 @@ public:
             ans++;
             right++;
         }
-        
         return ans;
     }
 };
