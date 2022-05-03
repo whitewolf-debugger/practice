@@ -38,17 +38,17 @@ public:
         //size of the subarray answer
         int ans = badR - badL + 1;
         
-        int left = badL;
-        
+        int left = badL-1;
+        int right = badR+1;
         /* if a number in left is greater than minimum element of array which we have to sort then we need to increase the size         of array which has to be sorted ans++ is done and left++ is done */
-        while(left-1 >= 0 && mn < nums[left-1]) {
+        while(left >= 0 && mn < nums[left]) {
             ans++;
             left--;
         }
          /* if a number in right is greater than maximum element of array which we have to sort then we need to increase the               size of array which has to be sorted so ans++ is done and badR++ is done*/
-        while(badR+1 < n && mx > nums[badR+1]) {
+        while(right< n && mx > nums[right]) {
             ans++;
-            badR++;
+            right++;
         }
         
         return ans;
