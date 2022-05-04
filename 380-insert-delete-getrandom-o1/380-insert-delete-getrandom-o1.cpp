@@ -26,7 +26,7 @@ public:
     }
     
     int getRandom() {
-         auto it = set.cbegin();
+        auto it = set.cbegin();
         int random = rand() % set.size();
         std::advance(it, random);
         return *it;
