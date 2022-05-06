@@ -36,19 +36,3 @@ public:
         return ans;
     }
 };
-
-/*
-
-   deeedbbcccbdaa
-   ^
-   k=3
-   
-   
-
-
-
-
-
-
-
-*/
