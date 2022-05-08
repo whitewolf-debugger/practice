@@ -18,13 +18,18 @@
 
 class NestedIterator {
 public:
+    //v stores the integer values of the list
     vector<int> v;
+    //pos stores the current posirtion of the iterator
     int pos=0;
     void flatten(vector<NestedInteger> &nestedList){
+        // x iterates nestedList vector
         for(auto x: nestedList){
+            //x is a list  we  push integer inside of it in a vector
             if(x.isInteger()){
                 v.push_back(x.getInteger());
             }
+            //if x is adress of a list then we call flatten function again on x.getlist()
             else{
                 flatten(x.getList());
             }
@@ -34,11 +39,17 @@ public:
         flatten(nestedList);
     }
     int next() {
+        //return the element at that position
         return v[pos++];
+        //increase position by one 
     }
     
     bool hasNext() {
-        if(pos<v.size()) return true;
+        // if position of pointer is less than size of vector  means it has next 
+        if(pos<v.size()) {
+            return true;
+        }
+        // we came out of if means position is = v.size() means we are poiting at system memory
         return false;
     }
 };
