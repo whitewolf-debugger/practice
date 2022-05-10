@@ -16,7 +16,6 @@ public:
         solve(i + 1, arr, path, target,n);
     }
     vector<vector<int>> combinationSum(vector<int>& arr, int target) {
-        ans.clear(); 
         int size = arr.size();
         vector<int> path;   
         solve(0, arr, path, target,size);   
