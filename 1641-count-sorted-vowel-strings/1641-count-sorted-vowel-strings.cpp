@@ -1,7 +1,6 @@
 class Solution {
 public:
-    int countVowelStrings(int n) {
-        
+    int countVowelStrings(int n) {    
         int sol = (n+4)*(n+3)*(n+2)*(n+1)/24;
         return sol;
         //return dfs(n,0);
