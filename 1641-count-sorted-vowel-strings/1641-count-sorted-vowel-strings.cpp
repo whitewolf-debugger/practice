@@ -1,14 +1,4 @@
 class Solution {
-    // int dfs(int n,int i){
-    //     if(n ==0){
-    //         return 1;
-    //     }
-    //     int ret =0;
-    //     for(int j = i;j<5;j++){
-    //         ret += dfs(n-1,j);
-    //     }
-    //     return ret;
-    // }
 public:
     int countVowelStrings(int n) {
         
@@ -18,7 +8,15 @@ public:
     }
 };
 /*
-
-  9!/(5! 4!)
-  (n+4)*(n+3)*(n+2)*(n+1)/24
+    4 bars 
+    n= number of woves 
+    if n=5 
+    question is place n stars and 4 bars in n+4 size strings 
+    its 
+    (n+4)!/4!*(n)!;
+    simplify n=5
+     9!/(5! 4!)
+    we can generalize it to
+    (n+4)*(n+3)*(n+2)*(n+1)/24
+    viz our ans
 */
