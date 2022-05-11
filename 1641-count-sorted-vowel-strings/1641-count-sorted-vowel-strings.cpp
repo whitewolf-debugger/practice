@@ -7,13 +7,12 @@ public:
     }
 };
 /*
-    4 bars 
-    n= number of woves 
-    if n=5 
+    ((num of vowes = 5)-1)=4 bars 
+    n=size given
     question is place n stars and 4 bars in n+4 size strings 
     its 
     (n+4)!/4!*(n)!;
-    simplify n=5
+    simplify n=5 if n=5 
      9!/(5! 4!)
     we can generalize it to
     (n+4)*(n+3)*(n+2)*(n+1)/24
