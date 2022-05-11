@@ -12,15 +12,19 @@
 class Solution {
 public:
     void dfs(TreeNode * root,vector<string> &ans,string str){
+        // if root == NULL return
         if(root==NULL){
             return;
         }
+        //if it is a leav then we add the value of leaf to string and push string in ans and terminate
         if(root->right == NULL && root->left == NULL) {
             str =str+to_string(root->val);
             ans.push_back(str);
             return;
         }
+        // if it is a root then we add that value to string with ->
         str =str+to_string(root->val)+"->";
+        // do dfs
         dfs(root->left,ans,str);
         dfs(root->right,ans,str);
     }
