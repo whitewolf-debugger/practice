@@ -1,14 +1,7 @@
 class Solution {
 public:
-    bool isValidPath(vector<int>& path){
-        for(int i=0;i<path.size()-1;i++){
-            if(path[i]>path[i+1]) return false;
-        }
-        return true;
-    }
     void dfs(int k,int n,vector<int> &path,vector<vector<int>>& ans,unordered_set<int>& seen,int start){
         if(path.size()==k){
-            if(!isValidPath(path)) return;
             ans.push_back(path);
             return;
         }
