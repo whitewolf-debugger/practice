@@ -15,7 +15,9 @@ public:
                 path.push_back(i);
                 //if we have not seen it we see this element by inserting in seen set
                 seen.insert(i);
+                // do dfs
                 dfs(k,n,path,ans,seen,i+1);
+                //backtracking
                 // after discovering the path we remove this element and discover path with other element
                 path.pop_back();
                 // we erase that element from seen set
@@ -32,13 +34,7 @@ public:
         vector<int> path;
         //start index is 1
         int start =1;
-        // if(n==k){
-        //     for(int i=1;i<=n;i++){
-        //         path.push_back(i);
-        //     }
-        //     ans.push_back(path);
-        //     return ans;
-        // }
+        // do dfs 
         dfs(k,n,path,ans,seen,start);
         return ans;
     }
