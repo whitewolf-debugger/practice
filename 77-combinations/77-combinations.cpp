@@ -36,7 +36,7 @@ public:
         int start =1;
         // do dfs 
         dfs(k,n,path,ans,seen,start);
-        //ans has answer
+        //ans has answer so return it
         return ans;
     }
 };
