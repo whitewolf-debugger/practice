@@ -2,6 +2,7 @@ class Solution {
 public:
     long int ans = 0, tmp = -1;
     void fun(TreeNode* root, int level){
+        //base casse 
         if(!root)return;
         if(!root->left && !root->right){
             if(level > tmp){
