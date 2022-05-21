@@ -10,9 +10,9 @@ public:
         if(index == 0) return INT_MAX-1;
         if(dp[index][target]!=-1) return dp[index][target];
         if(coins[index-1] <= target){
-            // wecan take or not take onlt when the denomination is less than or equal to the required amount of coins
-            // minimum of we take this coin or we donot take this coin
-            //since we can take a coin multiple time we are not doing index-1 in the case 
+            /* we can take or not take onlt when the denomination is less than or equal to the required amount of coins
+             minimum of we take this coin or we donot take this coin
+            since we can take a coin multiple time we are not doing index-1 in the case */
             int  take = 1 + helper(coins,index, target-coins[index-1]);
             // case 2 we donot take this coin
             int notTake = helper(coins, index-1, target);
