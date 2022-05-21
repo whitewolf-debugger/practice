@@ -22,13 +22,12 @@ public:
                 dfs(root->left,ans,path,0);
                 dfs(root->right,ans,path,0);
             }  
-            path.pop_back();
         }
         else{
-        path.push_back(root->val);
-        dfs(root->right,ans,path,target-root->val);
-        dfs(root->left,ans,path,target-root->val);
-        path.pop_back();
+            path.push_back(root->val);
+            dfs(root->right,ans,path,target-root->val);
+            dfs(root->left,ans,path,target-root->val);
+            path.pop_back();
         }
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
