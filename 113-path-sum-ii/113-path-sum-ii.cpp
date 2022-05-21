@@ -21,7 +21,8 @@ public:
             else{
                 dfs(root->left,ans,path,0);
                 dfs(root->right,ans,path,0);
-            }  
+            } 
+            return;
         }
         else{
             path.push_back(root->val);
