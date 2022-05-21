@@ -2,21 +2,18 @@
 class Solution {
 public:
      int dp[13][10001];
-    // Unbounded KnapSack 
-    int rec(vector<int> &coins, int n, int W){
-
-        if(W == 0) return 0;
-
-        if(n == 0) return INT_MAX-1;
-        if(dp[n][W]!=-1) return dp[n][W];
-        if(coins[n-1] <= W){
-            return dp[n][W] = min(1 + rec(coins, n, W-coins[n-1]), rec(coins, n-1, W));
+    int helper(vector<int> &coins, int index, int target){
+        if(target == 0) return 0;
+        if(index == 0) return INT_MAX-1;
+        if(dp[index][target]!=-1) return dp[index][target];
+        if(coins[index-1] <= target){
+            return dp[index][target] = min(1 + helper(coins,index, target-coins[index-1]), helper(coins, index-1, target));
         }
-        return dp[n][W] = rec(coins, n-1, W);
+        return dp[index][target] = helper(coins, index-1, target);
     }
     int coinChange(vector<int>& coins, int amount){
         memset(dp, -1, sizeof(dp));
-        int minCoins = rec(coins, coins.size(), amount);
-        return minCoins == INT_MAX-1  ? -1 : minCoins;
+        int minCoins = helper(coins, coins.size(), amount);
+         return minCoins == INT_MAX-1  ? -1 : minCoins;
     }
 };
