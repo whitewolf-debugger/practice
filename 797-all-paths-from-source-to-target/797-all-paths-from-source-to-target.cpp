@@ -1,7 +1,8 @@
 class Solution {
 public:
-    void dfs(vector<vector<int>>& graph,vector<vector<int>>& ans, vector<int>& path,int target,unordered_set<int> seen,int node){
+    void dfs(vector<vector<int>>& graph,vector<vector<int>>& ans, vector<int> path,int target,unordered_set<int> seen,int node){
         if(node ==target){
+            //if we reached the target node ,push the path in ans 
             ans.push_back(path);
             return;
         }
