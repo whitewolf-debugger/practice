@@ -2,8 +2,10 @@ class Solution {
 public:
     bool isUsefulOffer(vector<int> &special,vector<int> &needs){
         for(int i=0;i<needs.size();i++){
+            //if in offer any product is morethan what we need we return false and donot consider that offer
             if(needs[i]<special[i]) return false;
         }
+        //if we came out of for loop means that the offer is suitable for us and we proceed to do backtracking
         return true;
     }
     int remaining(vector<int> needs,vector<int> price){
@@ -12,6 +14,7 @@ public:
         for(int i =0;i<needs.size();i++){
             sum+=needs[i]*price[i];
         }
+        //return the sum of price of remaining needed items
         return sum;
     }
     vector<int> updateNeeds(vector<int> special,vector<int> needs,char op){
