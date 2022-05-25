@@ -8,6 +8,7 @@ public:
     }
     int remaining(vector<int> needs,vector<int> price){
         int sum=0;
+        //adds the remaining price
         for(int i =0;i<needs.size();i++){
             sum+=needs[i]*price[i];
         }
@@ -25,11 +26,12 @@ public:
         return needs;
     }
     void dfs(vector<int>& price, vector<vector<int>>& special, vector<int>& needs,int currentPrice,int &ans){
+        //check if all the quantity needed is 0
         if(accumulate(needs.begin(), needs.end(), 0) == 0){
+            // if all the quantity needed becomes 0 
             ans = min(ans,currentPrice);
             return;
         }
-
         for(int i=0;i<special.size();i++){
             if(isUsefulOffer(special[i],needs)){
                 currentPrice+=special[i].back();
@@ -46,6 +48,7 @@ public:
         }
     }
     int shoppingOffers(vector<int>& price, vector<vector<int>>& special, vector<int>& needs) {
+        //ans is passed by reference stores the ans 
         int ans=INT_MAX;
         int currentPrice;
         dfs(price,special,needs,0,ans);
