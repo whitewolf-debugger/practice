@@ -9,8 +9,8 @@ public:
         }
         int ans;
         for(int i= low ;i <= high;i++){
-            if(seen.find(i)==seen.end()) ans = i;
+            if(seen.find(i)==seen.end()) return ans = i;
         }
-        return ans ;
+        return 0 ;
     }
 };
