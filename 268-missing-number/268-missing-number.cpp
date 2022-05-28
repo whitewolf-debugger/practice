@@ -2,24 +2,12 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
+        // sum of number till n number till n
         int sum = (n*(n+1))/2;
         for(auto x:nums){
            sum=sum-x;
         }
+        //sum has the missing number 
         return sum;
-        // int low =0;
-        // int high  = nums.size();
-        // unordered_set<int> seen;
-        // for(int i = 0 ; i < nums.size();i++){
-        //     seen.insert(nums[i]);
-        // }
-        // int ans;
-        // for(int i= low ;i <= high;i++){
-        //     if(seen.find(i)==seen.end()){
-        //         ans = i;
-        //         break;
-        //     } 
-        // }
-        // return ans ;
     }
 };
