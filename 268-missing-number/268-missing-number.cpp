@@ -1,15 +1,5 @@
 class Solution {
 public:
-    // void find(vector<int>& nums,int low,int high,unordered_set<int> seen,int &ans){
-    //     if(low>high){
-    //         return;
-    //     }
-    //     if(seen.find(low)==seen.end()){
-    //         ans = low;
-    //         return;
-    //     }
-    //     find(nums,low+1,high,seen,ans);
-    // }
     int missingNumber(vector<int>& nums) {
         int low =0;
         int high  = nums.size();
