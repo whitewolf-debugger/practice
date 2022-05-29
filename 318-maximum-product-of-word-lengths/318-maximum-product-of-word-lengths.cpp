@@ -21,7 +21,7 @@ public:
             }
             //check for more words and consecutively update the ans form 0 to i words which have been mapped
             for(int j = 0;j<i;j++){
-                //if there is no commong letter amont them 
+                //if there is no common letter among them 
                 if(!compare(chars[i],chars[j])){
                     //ans  = max of ans and new calcualtion of size 
                     ans = max(ans, (int)words[i].size()*(int)words[j].size());
