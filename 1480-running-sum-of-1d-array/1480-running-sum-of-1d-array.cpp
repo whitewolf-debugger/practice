@@ -6,9 +6,11 @@ public:
         if(index >= nums.size()){
             return;
         }
-        //else ad
+        //else add element of nums tu sum
         sum+=nums[index];
+        //place sum at that index in rs
         rs[index]=sum;
+        //move forward
         helper(nums,rs,sum,index+1);
     }
     vector<int> runningSum(vector<int>& nums) {
