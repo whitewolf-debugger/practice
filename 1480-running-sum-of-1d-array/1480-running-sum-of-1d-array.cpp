@@ -1,12 +1,15 @@
 class Solution {
 public:
+    //recursive approach 
     void helper(vector<int>& nums,vector<int> &rs,int sum,int index){
+        //base case if the index exceeds the size of array return
         if(index >= nums.size()){
             return;
         }
+        //else ad
         sum+=nums[index];
-        helper(nums,rs,sum,index+1);
         rs[index]=sum;
+        helper(nums,rs,sum,index+1);
     }
     vector<int> runningSum(vector<int>& nums) {
         vector<int> rs(nums.size());
