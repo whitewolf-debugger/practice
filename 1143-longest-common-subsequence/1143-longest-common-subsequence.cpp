@@ -16,7 +16,10 @@ public:
                     output[i][j]=1+output[i-1][j-1];
                 }
                 else{
-                    output[i][j]= max(output[i-1][j-1],max(output[i-1][j],output[i][j-1]));
+                    int x = output[i-1][j];
+                    int y = output[i-1][j-1];
+                    int z = output[i][j-1];
+                    output[i][j]= max(x,max(y,z));
                 }
             }
         }
