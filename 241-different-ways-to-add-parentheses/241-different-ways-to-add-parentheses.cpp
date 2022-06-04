@@ -1,5 +1,6 @@
 class Solution {
 public:
+    /*once we find the operator split into 2 parts based on the index of operator , then we will recursively call the function to the result of that part */
     vector<int> solutions(string s){
         vector<int> ans;
         for(int i=0;i<s.size();i++){
