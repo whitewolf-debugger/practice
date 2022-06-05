@@ -20,3 +20,28 @@ public:
         return ans;
     }
 };
+/*
+
+1 2
+
+1,3 , 2,1  3,2
+
+m1
+element    index
+1 	  ->  2
+2 	  ->  1
+3     ->  0
+
+
+
+m2
+
+index  element
+1 	-> 	2
+2 	-> 	1
+
+
+
+
+
+*/
