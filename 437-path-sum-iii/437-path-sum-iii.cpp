@@ -13,8 +13,10 @@ class Solution {
 public:
     int mod = 1e9+7;
     void dfs(TreeNode* root,int &targetSum,int &ans,vector<int> &result){
+        //base case of root == null
         if(root == NULL) return;
         result.push_back(root->val);
+        //dfs call on left and right 
         dfs(root->left,targetSum,ans,result);
         dfs(root->right,targetSum,ans,result); 
         int sum=0;
@@ -31,6 +33,7 @@ public:
     int pathSum(TreeNode* root, int targetSum) {
         int ans =0;
         vector<int> result;
+        //ans is stored in ans 
         dfs(root,targetSum,ans,result);
         return ans;
     }
