@@ -19,7 +19,9 @@ public:
         dfs(root->right,targetSum,ans,result); 
         int sum=0;
         for(int i=result.size()-1;i>=0;i--){
+            // to reduce size of ans 
             sum=(sum+(result[i]%mod))%mod;
+            // if sum is = targrt then increse count of solution
             if(sum==targetSum){
                 ans+=1;
             }
