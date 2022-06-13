@@ -1,15 +1,5 @@
-
 class Solution {
 public:
-    ListNode* sortList(ListNode* head) {
-        if (!head || !head->next)
-            return head;
-        ListNode* mid = getMid(head);
-        ListNode* left = sortList(head);
-        ListNode* right = sortList(mid);
-        return merge(left, right);
-    }
-
     ListNode* merge(ListNode* list1, ListNode* list2) {
         ListNode dummyHead(0);
         ListNode* ptr = &dummyHead;
@@ -28,7 +18,6 @@ public:
 
         return dummyHead.next;
     }
-
     ListNode* getMid(ListNode* head) {
         ListNode* midPrev = nullptr;
         while (head && head->next) {
@@ -38,5 +27,13 @@ public:
         ListNode* mid = midPrev->next;
         midPrev->next = nullptr;
         return mid;
+    }
+    ListNode* sortList(ListNode* head) {
+        if (!head || !head->next)
+            return head;
+        ListNode* mid = getMid(head);
+        ListNode* left = sortList(head);
+        ListNode* right = sortList(mid);
+        return merge(left, right);
     }
 };
