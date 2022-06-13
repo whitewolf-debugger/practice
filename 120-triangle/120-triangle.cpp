@@ -23,3 +23,12 @@ public:
         return mn;
     }
 };
+/*
+
+iterate through every row put triangle[row][col]+ = min(triangle[row-1][col],triangle[row-1][col-1])
+if col  == 0  then put triangle[r][i]+= triangle[r-1][i];
+if i==n-1 then put triangle[r][i]+=triangle[r-1][i-1];
+and ans is minimum element of last row
+
+
+*/
