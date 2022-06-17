@@ -35,9 +35,9 @@ public:
     }
     int minCameraCover(TreeNode* root) {
         int cam = 0;
+        //cam is storing total number of camera it is passed by reference 
         int returned =  dfs(root,cam);
-        
+        //in case there is no cam then reuturn 1(cam+1)  else return cam
         return returned == 0?cam+1:cam;
-        
     }
 };
