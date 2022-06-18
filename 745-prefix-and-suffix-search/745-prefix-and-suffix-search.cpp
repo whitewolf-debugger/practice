@@ -6,7 +6,7 @@ public:
         string end;
         for(int i=0;i<words.size();i++){
             string word = words[i];
-            for(int j = 0 ;j<=word.size();j++){
+            for(int j =1 ;j<=word.size();j++){
                 start = word.substr(0,j);
                 for(int k = 0 ; k<word.size();k++){
                     end = word.substr(k,word.size());
