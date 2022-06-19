@@ -17,6 +17,7 @@ public:
         for(int i=0;i<s.size();i++){
             //if there is repeat
             if(mp2[t[i]]!='\0'){
+                //if similar charater is mapped to different character ans is false 
                if(mp2[t[i]]!=s[i]) return false;
             }
             else{
