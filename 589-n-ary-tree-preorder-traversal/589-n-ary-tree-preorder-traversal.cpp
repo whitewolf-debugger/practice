@@ -20,10 +20,13 @@ public:
 
 class Solution {
 public:
+    // doing dfs
     void preorder(Node* root,vector<int>& ans){
         if(!root) return;
+        //push back root in ans before recursive call is preorder since root is pushed first then its childrens 
         ans.push_back(root->val);
         for(int i = 0 ; i<root->children.size();i++){
+            //dfs through all the children of tree 
             preorder(root->children[i],ans);
         }
     }
