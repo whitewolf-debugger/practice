@@ -1,4 +1,3 @@
-
 class Solution {
 public:
     static bool compare(string &s1,string &s2){
@@ -25,8 +24,6 @@ public:
                 }
             }
         }
-       // int last = ans.size()-1;
-        //if(ans[last]!='#') ans = ans+"#";
         cout<<ans;
         return ans.size();
     }
