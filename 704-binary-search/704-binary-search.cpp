@@ -2,9 +2,6 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         sort(nums.begin(),nums.end());
-        if(nums.size()==1 && nums[0]==target){
-            return 0;
-        }
         int start = 0;
         int end  = nums.size()-1;
         int mid;
