@@ -33,6 +33,7 @@ public:
     vector<int> preorder(Node* root) {
         vector<int> ans;
         preorder(root,ans);
+        //ans is passed by reference so we return ans 
         return ans;
     }
 };
