@@ -12,6 +12,7 @@ public:
         return -1;
     }
     int search(vector<int>& nums, int target) {
+        //L and R are 2 pointers 
         int L =0;
         int R =1;
         //find the index where the is previous number  greater than the next one since that is point of division of 2 sorted arrays 
