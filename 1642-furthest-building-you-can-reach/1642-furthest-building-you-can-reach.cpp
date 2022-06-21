@@ -1,18 +1,11 @@
 /*
 Keep a priority queue of the same size as ladders.
-
 add positive diffs to pq
-
 Once the pq gets bigger than the ladders, pop the top, and add that popped to the "brick sum".
-
 This idea works because we want to use ladders for the largest diffs that we see.
-
 k = number of ladders
-
 Time Comlexity: O(N log k)
 Space Complexity: O(k)
-
-
 */
 class Solution {
 public:
