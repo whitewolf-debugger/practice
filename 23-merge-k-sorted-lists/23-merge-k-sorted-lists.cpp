@@ -23,6 +23,7 @@ public:
                 lists[i]=lists[i]->next;
             }
         }
+        //creating new linked list 
         while(!pq.empty()){
             ListNode* newNode = new ListNode(pq.top());
             pq.pop();
@@ -35,6 +36,7 @@ public:
                 tail = newNode;
             }
         }
+        //returning head of new linkedlist
         return head;
     }
 };
