@@ -12,22 +12,20 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         int n = lists.size();
+        ///this is for creating a new linkedlist
         ListNode *head = NULL;
         ListNode *tail = NULL;
         priority_queue<int,vector<int>,greater<int>> pq;
-        vector<int> data;
         for(int i =0;i<lists.size();i++){
+            //pushing data of linkedlist in priorityqueue
             while(lists[i]!=NULL){
                 pq.push(lists[i]->val);
                 lists[i]=lists[i]->next;
             }
         }
         while(!pq.empty()){
-            data.push_back(pq.top());
+            ListNode* newNode = new ListNode(pq.top());
             pq.pop();
-        }
-        for(int i=0;i<data.size();i++){
-            ListNode* newNode = new ListNode(data[i]);
             if(head ==NULL){
                 head = newNode;
                 tail = newNode;
