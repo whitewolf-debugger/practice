@@ -28,6 +28,7 @@ public:
         while(!pendingNodes.empty()){
             int n = pendingNodes.size();
             vector<int> temp;
+            //since we have to return data like [[1],[3,2,4],[5,6]] so we are usig while loop 
             while(n--){
                 Node* front = pendingNodes.front();
                 pendingNodes.pop();
@@ -36,6 +37,7 @@ public:
                     pendingNodes.push(front->children[i]);
                 }
             }
+            //push temp in sol
             sol.push_back(temp);
         }
         return sol;
