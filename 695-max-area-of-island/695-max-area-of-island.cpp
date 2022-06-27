@@ -30,6 +30,7 @@ public:
                         int r = p.first;
                         int c = p.second;
                         pendingNodes.pop();
+                        //increase count as we visit ever node connected to current node and it has 1 
                         count++;
                         //checking all the direction arround that block {{0,1},{1,0},{-1,0},{0,-1}}
                         for(pair<int,int> &d:dir){
