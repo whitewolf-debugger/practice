@@ -17,11 +17,13 @@ public:
                     seen[i][j] = true;
                     while(!pendingNodes.empty()){
                         pair<int,int> p = pendingNodes.front();
+                        int r = p.first;
+                        int c = p.second;
                         pendingNodes.pop();
                         count++;
                         for(pair<int,int> &d:dir){
-                            int row = p.first + d.first;
-                            int col = p.second + d.second;
+                            int row = r + d.first;
+                            int col = c + d.second;
                             if(row>=0 && col>=0 && row<m && col<n && !seen[row][col] && grid[row][col]==1){
                                 pendingNodes.push({row,col});
                                 seen[row][col]=true;
