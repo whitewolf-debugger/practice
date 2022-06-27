@@ -12,14 +12,19 @@
 class Solution {
 public:
     void dfs(TreeNode* root,int &count){
+        //base case 
         if(!root) return;
+        //increase count for every node
         count++;
+        ///dfs recursive calls 
         dfs(root->left,count);
         dfs(root->right,count);
     }
     int countNodes(TreeNode* root) {
+        //create 
         int count =0;
         dfs(root,count);
+        //count has the ans it is passed by reference 
         return count;
     }
 };
