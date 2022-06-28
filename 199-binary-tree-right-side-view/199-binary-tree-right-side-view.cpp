@@ -18,9 +18,11 @@ public:
         pendingNodes.push(root);
         while(!pendingNodes.empty()){
             int size = pendingNodes.size();
+            //bfs 
             while(size--){
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
+                //push right most node in ans 
                 if(size==0) ans.push_back(front->val);
                 if(front->left!=NULL){
                     pendingNodes.push(front->left);
@@ -30,6 +32,7 @@ public:
                 }
             }
         }
+        //return ans
         return ans;
     }
 };
