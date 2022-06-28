@@ -21,6 +21,7 @@
  */
 class Solution {
 public:
+    /*convert linked list to array and then make sorted array to BST*/
     TreeNode* createBST(vector<int> & nums , int start , int end){
         //base case is that when start > end we  return NULL as the node
         if(start>end){
@@ -37,6 +38,7 @@ public:
         return root;
     }
     TreeNode* sortedListToBST(ListNode* head) {
+        //converting linked list to sorted array 
         vector<int> data;
         ListNode* temp = head;
         while(temp!=NULL){
