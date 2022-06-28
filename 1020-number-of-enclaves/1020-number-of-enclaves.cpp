@@ -4,6 +4,7 @@ public:
         if(i<0 || j<0 || i>=ROWS || j>=COLS || grid[i][j]==0 || visited[i][j]) return;
         visited[i][j]=true;
         count++;
+        //dfs calls on all 4 directions 
         dfs(grid,i+1,j,ROWS,COLS,visited,count);
         dfs(grid,i,j+1,ROWS,COLS,visited,count);
         dfs(grid,i-1,j,ROWS,COLS,visited,count);
