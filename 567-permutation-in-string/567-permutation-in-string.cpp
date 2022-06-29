@@ -11,7 +11,7 @@ public:
         vector<int> mp(26,0);
         //create a map of all the characters stored in s1 
         for(auto& a:s1) mp[a-'a']++;
-        //travel till s2.size()-s1.size()
+        //travel till s2.size()-s1.size() since we are doing i+j where j goes till s1.size() and we dont want to go out of bounds 
         for(int i=0;i<=s2.size()-s1.size();i++){
             //create a new map  
             vector<int> um(26,0);
