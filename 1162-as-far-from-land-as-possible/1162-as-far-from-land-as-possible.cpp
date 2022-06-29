@@ -31,6 +31,6 @@ public:
             }
         }
         
-        return ans ==0 ? -1:ans;
+        return ans==0?-1:ans;
     }
 };
