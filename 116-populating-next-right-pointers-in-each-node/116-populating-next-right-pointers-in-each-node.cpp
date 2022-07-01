@@ -22,12 +22,14 @@ public:
         if(!root) return root;
         queue<Node*> pendingNodes;
         pendingNodes.push(root);
+        //doing level order bfs 
         while(!pendingNodes.empty()){
             int size = pendingNodes.size();
             Node* prev =NULL;
             while(size--){
                 Node* front = pendingNodes.front();
                 pendingNodes.pop();
+                //populate next right step
                 if(prev!=NULL) prev->next = front;
                 prev = front;
                 if(front->left!=NULL){
