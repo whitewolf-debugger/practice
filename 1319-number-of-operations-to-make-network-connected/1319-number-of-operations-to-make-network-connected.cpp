@@ -1,41 +1,30 @@
 class Solution {
 public:
-    void dfs(int a,vector<vector<int>> &v,vector<int> &vis){
-        
-        if(vis[a]) return;
-        
-        vis[a]=1;
-        
-        for(auto child:v[a]){
-            
-            dfs(child,v,vis);
-            
+    void dfs(int node,vector<bool> &visited,vector<vector<int>> &adj){
+        if(visited[node]) return;
+        visited[node]=true;
+        for(auto x:adj[node]){
+            if(!visited[x]){
+                dfs(x,visited,adj);
+            }
         }
     }
     int makeConnected(int n, vector<vector<int>>& connections) {
-        
-        int edges=connections.size();
-        
-        if(n>edges+1) return -1;
-        
-        vector<vector<int>> v(n);
-        
-        for(auto i:connections){
-            
-            v[i[0]].push_back(i[1]);
-            v[i[1]].push_back(i[0]);
+        int edges = connections.size();
+        if(edges<n-1) return -1;
+        vector<bool> visited(n,false);
+        vector<vector<int>> adj(n);
+        for(int i=0;i<edges;i++){
+            adj[connections[i][0]].push_back(connections[i][1]);
+            adj[connections[i][1]].push_back(connections[i][0]);
         }
-        vector<int> vis(n+1,0);
-        
-        int cnt=0;
+        int count =0;
         for(int i=0;i<n;i++){
-            if(!vis[i]){
-                dfs(i,v,vis);
-                cnt++;
+            if(!visited[i]){
+                dfs(i,visited,adj);
+                count++;
             }
         }
-        
-        return cnt-1;
-        
+        return count-1;
     }
 };
