@@ -15,3 +15,16 @@ public:
         return max(inc,dec);
     }
 };
+/*
+
+
+                1  7  4  9  2  5
+    
+    inc         1  2  2  4  4  6
+    dec         1  1  3  3  5  5
+    
+    ans = max(inc,dec)
+
+
+
+*/
