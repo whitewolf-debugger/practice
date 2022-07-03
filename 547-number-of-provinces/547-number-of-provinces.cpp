@@ -29,7 +29,7 @@ public:
                 search(isConnected,i,seen);
                 count++;
             }
-        }
+        }                                                                      
         //return total disconected node
         return count;
     }
