@@ -19,6 +19,7 @@ public:
                 adj[manager[i]].push_back(i);
             }
         }
+        //do dfs ans and return max height of the tree 
         return dfs(headID,adj,informTime);
     }
 };
