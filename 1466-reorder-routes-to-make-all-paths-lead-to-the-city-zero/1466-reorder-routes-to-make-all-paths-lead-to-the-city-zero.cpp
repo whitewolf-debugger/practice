@@ -1,41 +1,32 @@
 class Solution {
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
-        vector<vector<int>> edges(n);
-        vector<vector<int>> pointed(n);
+        vector<vector<int>> adj(n);
+        vector<bool> seen(n,false);
+        set<pair<int,int>> visited;
+        int total  =0;
         for(auto& connection: connections){
-            int a= connection[0];
+            int a = connection[0];
             int b = connection[1];
-            edges[a].push_back(b);
-            pointed[b].push_back(a);
+            adj[a].push_back(b);
+            adj[b].push_back(a);
+            visited.insert({a,b});
         }
-        queue<int> q;
-        q.push(0);
-        vector<int> visited(n,-1);
-        visited[0]=1;
-        int reverse =0;
-        while(!q.empty()){
-            int size = q.size();
-            while(size--){
-                int front = q.front();
-                q.pop();
-                for(int i=0;i<edges[front].size();i++){
-                    int update = edges[front][i];
-                    if(visited[update]==-1){
-                        visited[update]=1;
-                        q.push(edges[front][i]);
-                    }
-                }
-                for(int i=0;i<pointed[front].size();i++){
-                    int update = pointed[front][i];
-                    if(visited[update]==-1){
-                        visited[update]=1;
-                        q.push(pointed[front][i]);
-                        reverse++;
+        queue<int> pendingNodes;
+        pendingNodes.push(0);
+        while(!pendingNodes.empty()){
+            int front = pendingNodes.front();
+            pendingNodes.pop();
+            if(!seen[front]){
+                seen[front] = true;
+                for(int i=0;i<adj[front].size();i++){
+                    pendingNodes.push(adj[front][i]);
+                    if(!seen[adj[front][i]] && visited.find({front,adj[front][i]})!=visited.end()){
+                        total++;
                     }
                 }
             }
         }
-        return n-1-reverse;
+        return total;
     }
 };
