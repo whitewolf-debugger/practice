@@ -30,10 +30,15 @@ public:
                 string front = pendingSequence.front();
                 pendingSequence.pop();
                 if(front==end) return moves;
+                //since the size of string will be 8 
                 for(int i=0;i<8;i++){
+                    //copy the front element 
                     string temp = front;
+                    //since we want to mutate only 1 gene at a time so me donot do changes directly in front string we make copy
                     for(auto& mutation : mutations){
+                        //change the character at that place do bfs 
                         temp[i]=mutation;
+                        //if sequence is there in the bank and we have not seen the sequence we push the sequence in queue and mark visited
                         if(mp[temp] && !visited[temp]){
                             visited[temp]=true;
                             pendingSequence.push(temp);
@@ -41,6 +46,7 @@ public:
                     }
                 }
             }
+            //increase moves 
             moves++;
         }
         return -1;
