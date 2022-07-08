@@ -32,14 +32,19 @@ public:
             for(int j=0;j<n;j++){
                 //stores the current cost 
                 int currcost = 0;
-                //if current color which we are trying is = neighbours colour then
+                //if current color which we are trying is same as previous coloured house 
                 if(prev_color==j+1){
-                    //do dfs call do not do any change to target 
+                    //do dfs call do not do any change to target since same color house are not neighbours 
                     currcost=dfs(houses,cost,m,n,target,start+1,j+1,memo);
-                }else{
+                }
+                //if current color which we are trying is differenct as previous coloured house 
+                else{
+                    //means previous hour and current house with j+1 colour is will be neighbours so decrease target as there is 1 more neighbour added
                     currcost=dfs(houses,cost,m,n,target-1,start+1,j+1,memo);
                 }
+                //check if currcost is not INT_MAX when start==m || target<0 means we didnot make the target amount of neighbours 
                 if(currcost!=INT_MAX){
+                    // mincost stores the minimum cost and if currcost!=INT_MAX so we add the cost of painting current house  i.e cost[start][j]
                     mincost = min(mincost,currcost+cost[start][j]);
                 }
             }
@@ -52,6 +57,7 @@ public:
     int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
         vector<vector<vector<int>>> memo(m+3,vector<vector<int>>(n+3,vector<int>(m+3,-1)));
         int min_cost = dfs(houses,cost,m,n,target,0,-1,memo);
+        //if min cost is INTMAX means we cannot achive the target so we return -1 else we return min_cost
         return min_cost == INT_MAX ? -1 : min_cost;
     }
 };
