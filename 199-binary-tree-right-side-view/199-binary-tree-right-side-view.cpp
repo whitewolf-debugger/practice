@@ -12,14 +12,17 @@
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
-        queue<TreeNode*> pendingNodes;
-        pendingNodes.push(root);
         vector<int> ans;
         if(!root) return ans;
+        queue<TreeNode*> pendingNodes;
+        pendingNodes.push(root);
+        //bfs
         while(!pendingNodes.empty()){
             int size=pendingNodes.size();
+            //create a temporary vector 
             vector<int> temp;
             while(size--){
+                //push all the data level wise in temporary vector
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
                 temp.push_back(front->val);
@@ -30,6 +33,7 @@ public:
                     pendingNodes.push(front->right);
                 }
             }
+            //push the last element of temporary vector in the ans vector 
             ans.push_back(temp[temp.size()-1]);
         }
         return ans;
