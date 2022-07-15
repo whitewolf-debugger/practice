@@ -2,7 +2,8 @@ class Solution {
 public:
     void backtrack(string s,string temp,unordered_set<string> dict,vector<string> &ans){
         if(s=="") {
-            ans.push_back(temp.substr(0,temp.length()-1));
+            temp.pop_back();
+            ans.push_back(temp);
             return;
         }
         string prefix;
