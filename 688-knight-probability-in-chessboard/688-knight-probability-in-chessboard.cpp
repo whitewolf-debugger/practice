@@ -6,9 +6,6 @@ public:
         }
         if(moves<=0) return 1;
         if(memo[x][y][moves]!=-1) return memo[x][y][moves];
-    //vector<int> dx = {-2,-2,-1, 1, 2, 2, 1, -1};
-    
-    //vector<int> dy = {-1, 1, 2, 2, 1, -1, -2, -2};
         double move1  = dfs(x-2,y-1,ROWS,COLS,moves-1,memo);
         double move2  = dfs(x-2,y+1,ROWS,COLS,moves-1,memo);
         double move3  = dfs(x-1,y+2,ROWS,COLS,moves-1,memo);
