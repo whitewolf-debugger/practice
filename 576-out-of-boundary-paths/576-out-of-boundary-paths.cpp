@@ -1,8 +1,14 @@
 class Solution {
 public:
      long long mod = 1e9 + 7;
+    bool isInside(int i,int j,int m, int n){
+        if(i>=0 && j>=0 && i<m && j<n){
+            return true;
+        }
+        return false;
+    }
     int dfs(int i,int j,int m, int n, int moves,vector<vector<vector<int>>> &dp){
-        if(i<0 || j<0 || i>=m || j>=n){
+        if(!isInside(i,j,m,n)){
             return 1;
         }
         if(moves<=0) return 0;
