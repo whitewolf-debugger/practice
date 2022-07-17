@@ -11,6 +11,7 @@ public:
         dfs(board,i,j-1,ROWS,COLS);
     }
     void solve(vector<vector<char>>& board) {
+        //Iterate over boundaries to find any 'O' connected to boundary and mark them 'B' using DFS.
         int m = board.size();
         int n = board[0].size();
         for(int i=0;i<m;i++){
@@ -25,6 +26,8 @@ public:
         for(int i=0;i<n;i++){
             dfs(board,m-1,i,m,n);
         }
+        //The Cell which is still 'O' doesn't connected to boundary therefore it is surrounded by "X".
+        //Convert all "B" to "O" because they are on boundary hence can be surrounded and mark rest of the cells "X". 
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(board[i][j]=='B'){
