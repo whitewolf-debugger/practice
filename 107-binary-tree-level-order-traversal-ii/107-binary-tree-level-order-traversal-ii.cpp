@@ -13,15 +13,18 @@ class Solution {
 public:
     vector<vector<int>> levelOrderBottom(TreeNode* root) {
         vector<vector<int>> ans;
+        //if root is null return null
         if(!root) return ans;
         queue<TreeNode*> pendingNodes;
         pendingNodes.push(root);
+        //DO BFS
         while(!pendingNodes.empty()){
             int size = pendingNodes.size();
             vector<int> data;
             while(size--){
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
+                //push the root value in data vector
                 data.push_back(front->val);
                 if(front->left!=nullptr){
                     pendingNodes.push(front->left);
@@ -30,8 +33,10 @@ public:
                     pendingNodes.push(front->right);    
                 }
             }
+            //push the data in ans
             ans.push_back(data);
         }
+        //reverse ans  ans return 
         reverse(ans.begin(),ans.end());
         return ans;
     }
