@@ -43,6 +43,7 @@ public:
             while(size--){
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
+                //front val is abs(left treesum - right treesum)
                 front->val = abs((!front->left?0:SUM(front->left))-(!front->right?0:SUM(front->right)));
                 if(front->left!=NULL){
                     pendingNodes.push(front->left);
@@ -52,6 +53,7 @@ public:
                 }
             }
         }
+        //return sum of the final tree 
         return SUM(root);
     }
 };
