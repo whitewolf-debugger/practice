@@ -38,6 +38,7 @@ public:
         if(!root) return 0;
         queue<TreeNode*> pendingNodes;
         pendingNodes.push(root);
+        //DO BFS
         while(!pendingNodes.empty()){
             int size = pendingNodes.size();
             while(size--){
