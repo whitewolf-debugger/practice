@@ -36,7 +36,7 @@ public:
             //push the data in ans
             ans.push_back(data);
         }
-        //reverse ans  ans return 
+        //reverse ans ans return 
         reverse(ans.begin(),ans.end());
         return ans;
     }
