@@ -28,7 +28,7 @@ public:
         if(root1->val!=root2->val){
             return false;
         }
-        //return for both the right and left
+        //return for both the right and left since values in left and right both should be same 
         return equal(root1->left,root2->left) && equal(root1->right,root2->right) ;
         
     }
