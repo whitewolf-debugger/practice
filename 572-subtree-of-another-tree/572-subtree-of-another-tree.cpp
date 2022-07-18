@@ -13,18 +13,22 @@ class Solution {
 public:
     //check for equality of 2 trees 
     bool equal(TreeNode* root1,TreeNode* root2){
+        //if either of the root becomes null and other is not null then return false
         if(!root2 && root1!=NULL) {
             return false;
         }
         if(!root1 && root2!=NULL) {
             return false;
         }
+        //if both the root are null together return true;
         if(!root2 && !root1){
             return true;
         }
+        //if values of root are not same return false
         if(root1->val!=root2->val){
             return false;
         }
+        //return for both the right and left
         return equal(root1->left,root2->left) && equal(root1->right,root2->right) ;
         
     }
