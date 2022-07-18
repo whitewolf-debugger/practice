@@ -11,15 +11,18 @@
  */
 class Solution {
 public:
+    //calculates sum of tree using BFS
     int SUM(TreeNode* root){
         int sum =0;
         queue<TreeNode*> pendingNodes;
         pendingNodes.push(root);
         while(!pendingNodes.empty()){
+            //DO BFS
             int size = pendingNodes.size();
             while(size--){
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
+                //keep on calculating running sum
                 sum+=front->val;
                 if(front->left!=NULL){
                     pendingNodes.push(front->left);
@@ -40,8 +43,7 @@ public:
             while(size--){
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
-                if(front->left==NULL && front->right==NULL) front->val =0;
-                else front->val = abs((!front->left?0:SUM(front->left))-(!front->right?0:SUM(front->right)));
+                front->val = abs((!front->left?0:SUM(front->left))-(!front->right?0:SUM(front->right)));
                 if(front->left!=NULL){
                     pendingNodes.push(front->left);
                 }
