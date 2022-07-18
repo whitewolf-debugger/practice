@@ -41,10 +41,7 @@ public:
                 TreeNode* front = pendingNodes.front();
                 pendingNodes.pop();
                 if(front->left==NULL && front->right==NULL) front->val =0;
-                else {
-                    front->val = abs((!front->left?0:SUM(front->left))-(!front->right?0:SUM(front->right)));
-                    cout<<front->val<<endl;
-                }
+                else front->val = abs((!front->left?0:SUM(front->left))-(!front->right?0:SUM(front->right)));
                 if(front->left!=NULL){
                     pendingNodes.push(front->left);
                 }
