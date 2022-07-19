@@ -20,10 +20,10 @@ public:
             vector<int> v;
             for(int j=0;j<=level;j++){
                 if(j==0){
-                    v.push_back(ans[i][0]);
+                    v.push_back(1);
                 }
                 else if(j == level){
-                        v.push_back(ans[i][level-1]);
+                        v.push_back(1);
                 }
                 else{
                     v.push_back(ans[i][j]+ans[i][j-1]);
