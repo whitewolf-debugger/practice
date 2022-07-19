@@ -15,14 +15,14 @@ public:
         }
         ans.push_back({1});
         ans.push_back({1,1});
-        int level =2;
+        int level =3;
         for(int i=1;i<n-1;i++){
             vector<int> v;
-            for(int j=0;j<=level;j++){
+            for(int j=0;j<level;j++){
                 if(j==0){
                     v.push_back(1);
                 }
-                else if(j == level){
+                else if(j == level-1){
                         v.push_back(1);
                 }
                 else{
