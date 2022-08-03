@@ -51,15 +51,17 @@ class MyCalendar {
     }
     //update helps to update the nodes 
     Node* update(Node* node,int start,int end){
-        //if there is n
+        //if there is  no node then add an edge there 
         if(!node){
             Node* newNode = new Node(start,end);
             return newNode;
         }
         else{
+            // if the start date of current root(movie) is after the end (end || startDate || endDate)
             if(node->startDate>=end){
                 node ->left = update(node->left,start,end);
             }
+            // if the start date of current root(movie) is after the end (startDate || endDate || starts)
             else{
                 node ->right = update(node->right,start,end);
             }
