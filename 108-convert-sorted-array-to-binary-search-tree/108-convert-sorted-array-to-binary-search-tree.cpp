@@ -11,12 +11,18 @@
  */
 class Solution {
     TreeNode* work(vector<int> nums,int L,int R){
+        //base case if L>R then return NULL
         if(R<L) return NULL;
-        int M =(R+L)/2;
+        //mid is (R+L) /2
+        int M = (R+L)/2;
+        //create root 
         TreeNode * root = new TreeNode(nums[M]);
-        
+        //create  left subtree 
         root->left = work(nums,L,M-1);
+        //create right subtree 
         root->right = work(nums,M+1,R);
+        
+        //return true
         return root;
     }
 public:
