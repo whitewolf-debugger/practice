@@ -25,3 +25,18 @@ public:
         return dist[dst];
     }
 };
+/*
+
+use bellmanfords algo
+
+1. create an array of distance store 0 at source index and 1e7(INT_MAX) at the remaining position
+2. relax all the edges k times 
+
+relaxing edge -:(u,v)
+ if(dist[v] > dist[u] + wt){
+    dist[v] = dist[u] + wt
+ }
+
+
+
+*/
