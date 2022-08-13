@@ -14,8 +14,10 @@ public:
         for(int i =0; i < numeral.size(); i++) {
             int num = mp[numeral[i]];
             int nextnum = mp[numeral[i+1]];
+            //for case like example XI (X + I = 11)
             if(num >= nextnum) {
                 result = result + num;
+            //for case like example IX (X - I = 9)
             } else{
                 nextnum = nextnum - num;
                 result = result + nextnum;
