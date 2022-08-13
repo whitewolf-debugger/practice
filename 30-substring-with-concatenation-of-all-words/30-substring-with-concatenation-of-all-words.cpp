@@ -41,3 +41,35 @@ public:
         return ans;
     }
 };
+
+/*
+
+"ling   mind    rabo    ofoo    owin    gdin    gbar    rwingmonkeypoundcake"
+["fooo","barr","wing","ding","wing"]
+
+
+                                                |   X   X   X   X   X
+0   1   2   3   4   5   6   7   8   9   0   1   2   3   4   5   6   7
+b   a   r   f   o   o   t   h   e   f   o   o   b   a   r   m   a   n
+                                                |   X   X   X   X   X
+                                                ^
+
+ogMap: {
+    foo: 1
+    bar: 1
+}
+
+winMap: 
+    foo: 1
+}
+
+["foo","bar"]
+
+Output: [0]
+
+1. get length of a word
+2. put words in a set/map
+3. make another empty set/map
+4. sliding window
+
+*/
