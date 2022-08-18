@@ -32,12 +32,7 @@ public:
         4:  1
  }
 
- priority_queue<pair<int,int>> pq;
- 
- pq.push({4 , 3});
- pq.push({3 , 5});
- pq.push({2 , 2});
- pq.push({1 , 7});
+ whenever target becomes negetive thats the ans 
 
     
 
