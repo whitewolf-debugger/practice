@@ -27,3 +27,27 @@ public:
         return result;
     }
 };
+/*
+    mp['I'] = 1;
+    mp['V'] = 5;
+    mp['X'] = 10;
+    mp['L'] = 50;
+    mp['C'] = 100;
+    mp['D'] = 500;
+    mp['M'] = 1000;
+    
+    num = 1
+    nextnum = 5
+    result = 54
+    
+    5 - 1 =4
+    
+   
+    L   I   V   I   I   I
+                ^
+   
+
+
+
+
+*/
