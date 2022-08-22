@@ -4,15 +4,16 @@ public:
         if(i == n){
             return 0;
         }
+        //memoization
         if(dp[i][buy] != -1) return dp[i][buy];
         int profit = 0;
         if(buy == 1){
             
-            //buy
+            //buy           //take it                           // not take it 
             profit  = max(-prices[i]+dfs(prices,i+1,0,n,dp) ,dfs(prices,i+1,1,n,dp));
         } else{
     
-            //sell
+            //sell          // sell it                          // not sell it
             profit  = max(prices[i]+dfs(prices,i+1,1,n,dp) ,dfs(prices,i+1,0,n,dp));
         }
         
