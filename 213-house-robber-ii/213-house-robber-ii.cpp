@@ -1,10 +1,7 @@
 class Solution {
 public:
     int dfs(vector<int>& nums,int ind, int lastind,vector<int> &dp){
-        if(ind > lastind){
-            return 0;
-        }
-        
+        if(ind > lastind) return 0;
         //memoization step
         if(dp[ind] != -1) return dp[ind];
         //not take
