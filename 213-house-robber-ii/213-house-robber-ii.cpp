@@ -9,9 +9,9 @@ public:
         int nottake = dfs(nums,ind+1,lastind,dp);
         int take = nums[ind];
         //take
-        if(ind+2 <= lastind) {
+        //if(ind+2 <= lastind) {
             take += dfs(nums,ind+2,lastind,dp);
-        }
+        //}
         return dp[ind] = max(take,nottake);
     }
     int rob(vector<int>& nums) {
