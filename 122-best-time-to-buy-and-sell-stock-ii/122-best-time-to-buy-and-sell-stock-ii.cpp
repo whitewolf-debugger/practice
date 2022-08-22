@@ -1,6 +1,7 @@
 class Solution {
 public:
     int dfs(vector<int>& prices,int i,int buy,int n,vector<vector<int>> &dp){
+        //base case when we have reached the end of the prices array
         if(i == n){
             return 0;
         }
@@ -23,9 +24,12 @@ public:
     }
     int maxProfit(vector<int>& prices) {
         
+        
         int i =0;
+        // first we have to buy before selling it so we are keeping buy = 1
         int buy = 1;
         int n = prices.size();
+        //memo for memoization 
         vector<vector<int>> dp(n,vector<int>(2,-1));
         return dfs(prices,i,buy,n,dp);
         
