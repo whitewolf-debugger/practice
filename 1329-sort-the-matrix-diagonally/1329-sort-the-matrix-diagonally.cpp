@@ -4,7 +4,7 @@ public:
         
         int ROWS = mat.size();
         int COLS = mat[0].size();
-        //stores the diagonal element later we sort the diagonal data using this vecotr
+        //stores the diagonal element later we sort the diagonal data using this vector
         vector<int> diagonal;
         
         //we are traversing down the row and covering the diagonal starting from row 
