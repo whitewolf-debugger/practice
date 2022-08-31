@@ -1,14 +1,19 @@
 class Solution {
 public:
     void dfs(vector<vector<int>> &heights,int i,int j, int ROWS, int COLS,vector<vector<int>> &ocean,int prev){
+        
+        //base case if  we are exceeding the boundary or when  ocean[i][j]==1
         if(i < 0 || j < 0 || i >= ROWS || j >= COLS || ocean[i][j] == 1){
             return;
         }
         
+        //base case if prev>heights[i][j] we do not do anything 
         if(heights[i][j] < prev) return;
         
+        //place 1 at that place in the index
         ocean[i][j] = 1;
         
+        //dfs calls on all 4 directions up down left right 
         dfs(heights,i + 1,j,ROWS,COLS,ocean,heights[i][j]);
         dfs(heights,i,j + 1,ROWS,COLS,ocean,heights[i][j]);
         dfs(heights,i - 1,j,ROWS,COLS,ocean,heights[i][j]);
@@ -40,6 +45,7 @@ public:
             dfs(heights,ROWS-1,i,ROWS,COLS,toAtlantic,-1);
         }
         
+        //pushing intersections of both the flows in the ans vector 
         for(int i = 0; i < ROWS; i++){
             for(int j = 0; j < COLS; j++){
                 if(toPacific[i][j] == 1 && toAtlantic[i][j] == 1){
