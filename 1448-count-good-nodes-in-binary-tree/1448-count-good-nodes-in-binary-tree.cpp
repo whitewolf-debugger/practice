@@ -13,7 +13,6 @@ class Solution {
 public:
     void dfs(TreeNode* root,int currMax,int &count){
         if(!root) return;
-        
         if(root -> val >= currMax){
         
             count++;
