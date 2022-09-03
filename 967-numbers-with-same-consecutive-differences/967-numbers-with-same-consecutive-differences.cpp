@@ -29,6 +29,7 @@ public:
         
         //check if we can make the new digit by subtracting k with the last digit option 2 
         if((LastDigit - k) >= 0){
+            
             //do dfs call and our new number is ((current number x 10) + (LastDigit - k)) like (35x10)+2 = 352 the same way 
             dfs(size+1,n,k,((num*10)+(LastDigit - k)),seen,ans);
         }
