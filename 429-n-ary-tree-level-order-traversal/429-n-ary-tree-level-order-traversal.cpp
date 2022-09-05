@@ -21,25 +21,24 @@ public:
 class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
-        vector<vector<int>> sol;
-        if(!root) return sol;
+        if(!root) return {};
+        vector<vector<int>> ans;
         queue<Node*> pendingNodes;
+        vector<int> level;
         pendingNodes.push(root);
         while(!pendingNodes.empty()){
-            int n = pendingNodes.size();
-            vector<int> temp;
-            //since we have to return data like [[1],[3,2,4],[5,6]] so we are usig while loop 
-            while(n--){
+            int size = pendingNodes.size();
+            level.clear();
+            while(size--){
                 Node* front = pendingNodes.front();
+                level.push_back(front -> val);
                 pendingNodes.pop();
-                temp.push_back(front->val);
-                for(int i=0;i<front->children.size();i++){
+                for(int i = 0; i < front -> children.size();i++){
                     pendingNodes.push(front->children[i]);
                 }
             }
-            //push temp in sol
-            sol.push_back(temp);
+            ans.push_back(level);
         }
-        return sol;
+        return ans;
     }
 };
