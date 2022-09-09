@@ -20,11 +20,9 @@ public:
     }
 };
 /*
-
-
-//decreasing attacks and increasing defence 
-    [6,3] , [5,5] ,[3,6]
-
-    []
-
+ THE DEFENCE ARE SORTED IN INCREASING ORDER WHEN ATTACK ARE SAME -: because if the attack are same because the restriction id attack and defence has to be strictly greater so attack cannot be same 
+    1. sort the first one attack in descending order 
+    2. the next elements are having either equal or smaller defence 
+    3. keep the track of max defence 
+    4.if the max defence is greater than current elements defence then increase count and keep on updating max defence  
 */
