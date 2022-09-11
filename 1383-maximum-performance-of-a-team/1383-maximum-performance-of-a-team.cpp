@@ -5,9 +5,12 @@ public:
         long long MOD = 1e9 +7;
         vector<pair<int,int>> candidates;
         
+        //create a vector candidate which stores the efiiciency 
         for(int i =0; i < n;i++){
             candidates.push_back({efficiency[i] , speed[i]});
         }
+        
+        //candidate is sorted in reverse order based on the efficiency since we want max efficiency 
         sort(candidates.rbegin(),candidates.rend());
         priority_queue<int,vector<int>,greater<int>> pq;
         
