@@ -30,6 +30,7 @@ public:
             // a team is formed now, calculate the performance
             ans = max(ans, runningSpeedSum  * c.first);
         }
+        // ans is modded to reduce the size 
         return ans % MOD;
         
     }
