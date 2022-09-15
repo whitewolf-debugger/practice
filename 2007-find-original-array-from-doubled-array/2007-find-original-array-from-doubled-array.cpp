@@ -2,35 +2,52 @@ class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
         
+        //get the size of the changed array
         int n = changed.size();
         vector<int> original;
+        
+        //if the number of elements are odd or 0 then it means that is not a doubled if doesnot have 2*elements
         if(n == 0 || n%2 != 0){
             return original;
         }
+        
+        //sort the changed array 
         sort(changed.begin(),changed.end());
-        vector<int> ans;
-        unordered_map<int,int> mp;
+        
+        //create a map of feqency of element
+        unordered_map<int,int> freqMap;
     
+        //get the frequency of all the element in the changed array
         for(int i =0; i < n; i++){
-            mp[changed[i]]++;
+            freqMap[changed[i]]++;
         }
         
+        //traverse in changed array
         for(auto & x : changed){
             
-            if(x != 0 && mp[x] > 0 && mp[2*x] > 0){
+            //if the current element is not 0 and the frequency of current element is more than 1 and double of that element is there 
+            if(x != 0 && freqMap[x] > 0 && freqMap[2*x] > 0){
+                
+                //add that element to the list and reduce their frequency 
                 original.push_back(x);
-                mp[x]--;
-                mp[2*x]--;
+                freqMap[x]--;
+                freqMap[2*x]--;
             }
-            if(x == 0 && mp[x] > 1){
+            
+            //if the current element is 0 thecn check whether the frequency of 0 is more than 2 since 2*0 = 0
+            if(x == 0 && freqMap[x] > 1){
+                //push the element 0 in the original array
                 original.push_back(x);
-                mp[x] -= 2;
+                
+                //reduce the frequency twice
+                freqMap[x] -= 2;
             }
         }
-        
+       //if the 2 x size of created origianl array is != the the size of changed then return empty {} vector 
        if(n != 2*original.size()){
            return {};
        }
-        return original;
+       //else return the original 
+       return original;
     }
 };
