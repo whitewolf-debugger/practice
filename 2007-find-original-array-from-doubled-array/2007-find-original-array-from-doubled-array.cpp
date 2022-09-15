@@ -43,7 +43,7 @@ public:
                 freqMap[x] -= 2;
             }
         }
-       //if the 2 x size of created origianl array is != the the size of changed then return empty {} vector 
+       //if the 2 x size of created original array is != the the size of changed then return empty {} vector 
        if(n != 2*original.size()){
            return {};
        }
