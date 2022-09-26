@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //find parent of the set or leader of a set
     int findparent(vector<int> &parent,int i) {
         while(parent[i] != i){
             i = parent[i];
@@ -7,9 +8,11 @@ public:
         return i;
     }
     
+    //union of 2 nodes 
     void unite(int x,int y,vector<int> &parent,vector<int> &rank) {
         int parentx = findparent(parent,x);
         int parenty = findparent(parent,y);
+        //union by rank (optimized method)
         if(rank[parentx] > rank[parenty]) {
             parent[parenty] = parentx;
         }
@@ -19,10 +22,9 @@ public:
             parent[parenty] = parentx;
             rank[parentx]++;
         }
-        
-        
     }
     
+    //we unite the 2 nodes if there is == and after uniting all we check for != if those have same parent means eqn not satisfied
     bool equationsPossible(vector<string>& equations) {
         int size = 26;
         vector<int> parent(26);
