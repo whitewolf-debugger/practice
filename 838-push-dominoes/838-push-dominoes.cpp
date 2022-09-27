@@ -38,9 +38,12 @@ public:
     }
 };
 /*
-
 .L.R...LR..L..
+Scanning from left to right our force decays by 1 every iteration, and resets to N if we meet an 'R', so that force[i] is higher (than force[j]) if and only if dominoes[i] is closer (looking leftward) to 'R' (than dominoes[j]).
 
+Similarly, scanning from right to left, we can find the force going rightward (closeness to 'L').
+
+For some domino answer[i], if the forces are equal, then the answer is '.'. Otherwise, the answer is implied by whichever force is stronger.
 
 
 */
