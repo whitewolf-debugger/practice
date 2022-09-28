@@ -1,14 +1,19 @@
+//Dijkstras Approach 
 class Solution {
 public:
     void dijkstras(vector<vector<pair<int,int>>> adj,vector<int> &signalReceivedAt,int source,int n) {
         priority_queue<pair<int,int>,vector<pair<int,int>> , greater<pair<int,int>>> pq;
+        //push the source along with its weight in the priority queue 
         pq.push({0,source});
         signalReceivedAt[source] = 0;
+        //same as BFS approach 
         while(!pq.empty()) {
+            //get the current time(sum of all previous weight) and current node 
             int currNodeTime = pq.top().first;
             int currentNode = pq.top().second;
             pq.pop();
-            if(currNodeTime > signalReceivedAt[currentNode]) continue;
+            
+            //if(currNodeTime > signalReceivedAt[currentNode]) continue;
             for(auto & edge : adj[currentNode]) {
                 int time = edge.first;
                 int nbr = edge.second;
