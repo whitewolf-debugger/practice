@@ -22,6 +22,7 @@ public:
                 if(signalReceivedAt[nbr] > time + currNodeTime) {
                     //update the time to reach that node 
                     signalReceivedAt[nbr] = time + currNodeTime;
+                    //push the new time and the neighbour in the min heap
                     pq.push({signalReceivedAt[nbr],nbr});
                 }
             }
