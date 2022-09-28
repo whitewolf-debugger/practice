@@ -2,7 +2,7 @@ class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
         
-        vector<int> dist(n,1e7);
+        vector<int> dist(n,INT_MAX);
         dist[src] = 0;
         
         for(int i = 0; i <= k; i++) {
@@ -13,15 +13,15 @@ public:
                 int u = edge[0];
                 int v = edge[1];
                 int wt = edge[2];
-                
-                temp[v] = min(dist[u]+wt,temp[v]);
+                if(dist[u] != INT_MAX)
+                    temp[v] = min(dist[u]+wt,temp[v]);
                     
             }
             dist = temp;
             
         }
         
-        if(dist[dst]==1e7) return -1;
+        if(dist[dst]==INT_MAX) return -1;
         return dist[dst];
     }
 };
@@ -35,7 +35,7 @@ use bellmanfords algo
 relaxing edge -:(u,v)
  if(dist[v] > dist[u] + wt){
     dist[v] = dist[u] + wt
- }
+}
 
 
 
