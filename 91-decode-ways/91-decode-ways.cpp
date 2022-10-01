@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long dp(string &s,int i,vector<long long> &cache){
-        //base case we have traversed through entire s 
+        //base case we have traversed through entire s we got one way of decoding
         if(i >= s.size()){
             return 1;
         }
