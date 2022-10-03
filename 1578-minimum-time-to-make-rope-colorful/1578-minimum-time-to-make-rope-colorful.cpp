@@ -21,6 +21,7 @@ public:
         }
         //get the total sum of all elements of the time 
         int sum = accumulate(neededTime.begin(),neededTime.end(),0);
+        //ans is total time - the required time for baloons which we didnot remove 
         int ans = sum - needed;
         return ans;
     }
