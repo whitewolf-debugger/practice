@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    //find the target node return NULL if node not found else return the node
     TreeNode *find(TreeNode* root,int target){
         if(!root) return NULL;
         if(root -> val == target) return root;;
@@ -18,6 +19,8 @@ public:
         TreeNode* right = find(root -> right,target);
         return left == NULL ? right : left;
     }
+    
+    //for every node get the difference which now becomes the target node look for the target node if it is there and not same as root return true if we didnot find and reach the null node return false
     bool helper(TreeNode* originalroot,TreeNode* root,int k){
         if(!root) return false;
         int target = k - root -> val;
