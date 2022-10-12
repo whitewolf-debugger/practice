@@ -10,7 +10,6 @@ public:
             double perimeter = a + b+ c;
             double s = (a + b + c) /2;
             double mul = (s*(s-a)*(s-b)*(s-c));
-            cout<<s<<endl;
             double area = sqrt(mul);
             if(area > 0){
                 perimeters.push_back(perimeter);
