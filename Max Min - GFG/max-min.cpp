@@ -10,13 +10,8 @@ using namespace std;
 class Solution
 {
    public:
-    int findSum(int arr[], int N)
-    {
-        sort(arr,arr+N);
-        int mn = arr[0];
-        int mx = arr[N-1];
-        return mn+mx;
-    	//code here.
+    int findSum(int arr[], int N){
+        sort(arr,arr+N); int mn = arr[0] , mx = arr[N-1]; return mn+mx;
     }
 
 };
