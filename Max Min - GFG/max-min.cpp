@@ -11,7 +11,7 @@ class Solution
 {
    public:
     int findSum(int arr[], int N){
-        sort(arr,arr+N); int mn = arr[0] , mx = arr[N-1]; return mn+mx;
+        sort(arr,arr+N);return arr[0]+arr[N-1];
     }
 
 };
