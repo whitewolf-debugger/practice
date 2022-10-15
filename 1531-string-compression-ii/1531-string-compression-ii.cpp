@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp(string &s,int idx,int lastChar,int lastCharCount, int k,set<int> &st,unordered_map<int,int> &mp){
+    int dp(string &s,int idx,char lastChar,int lastCharCount, int k,set<int> &st,unordered_map<int,int> &mp){
         if(k < 0) return INT_MAX/2;
         if(idx >= s.size()) return 0;
         //memoization
