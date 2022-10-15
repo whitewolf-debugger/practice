@@ -17,6 +17,7 @@ public:
         }
         
         int result = min(keepChar,deleteChar);
+        //making key to store the result 
         mp[key] = result;
         return result;
     }
