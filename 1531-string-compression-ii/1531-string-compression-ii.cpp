@@ -1,39 +1,29 @@
-int dp[101][101][27][101];
+int cache[101][101][27][101];
 class Solution {
 public:
-string str;
-int f(int ind , int k , int prev , int len)
-{
-    if(k<0)
-        return INT_MAX;
-
-    if(ind>=str.size())
-        return 0;
-    
-    if(dp[ind][k][prev][len]!=-1)
-        return dp[ind][k][prev][len] ;
-    
-    int del=f(ind+1 , k-1 , prev , len);
-    int take=0;
-    if(str[ind]-'a' == prev)
-    {
-        if(len==1 || len==9 || len==99)
-            take+=1;
-        
-        take = take + f(ind+1,k,prev,len+1);
+    int dp(string &s,int idx,int lastChar,int lastCharCount, int k,set<int> &st,unordered_map<int,int> &mp){
+        if(k < 0) return INT_MAX/2;
+        if(idx >= s.size()) return 0;
+        if(cache[idx][k][lastChar][lastCharCount] != -1) return cache[idx][k][lastChar][lastCharCount];
+        int keepChar;
+        //delete the character 
+        int deleteChar = dp(s,idx+1,lastChar,lastCharCount,k-1,st,mp);
+        //condition to keep the character 
+        if(s[idx] -'a'== lastChar) {
+            keepChar = dp(s,idx + 1,lastChar,lastCharCount + 1,k,st,mp) + ((st.find(lastCharCount) != st.end())?1:0);
+        } else {
+            keepChar = dp(s,idx + 1,s[idx]-'a',1,k,st,mp) + 1;
+        }
+        int result = min(keepChar,deleteChar);
+        return cache[idx][k][lastChar][lastCharCount] = result;
     }
-    
-    else
-    {
-        take=1+f(ind+1,k,str[ind]-'a',1);
+    int getLengthOfOptimalCompression(string s, int k) {
+        set<int> st;
+        st.insert(1);
+        st.insert(9);
+        st.insert(99);
+        unordered_map<int,int> mp;
+        memset(cache,-1,sizeof(cache));
+        return dp(s,0,26,0,k,st,mp);
     }
-    
-    return dp[ind][k][prev][len]=min(del,take);
-}
-
-int getLengthOfOptimalCompression(string s, int k) {
-    str=s;
-    memset(dp,-1,sizeof(dp));
-    return f(0,k,26,0);
-}
 };
