@@ -7,12 +7,15 @@ public:
         int key = idx * 101 * 101 * 27 +(lastChar - 'a') * 101 * 101 + lastCharCount * 101 + k;
         if(mp.find(key) != mp.end()) return mp[key];
         int keepChar;
+        //delete the character 
         int deleteChar = dp(s,idx+1,lastChar,lastCharCount,k-1,st,mp);
+        //condition to keep the character 
         if(s[idx] == lastChar) {
             keepChar = dp(s,idx + 1,lastChar,lastCharCount + 1,k,st,mp) + ((st.find(lastCharCount) != st.end())?1:0);
         } else {
             keepChar = dp(s,idx + 1,s[idx],1,k,st,mp) + 1;
         }
+        
         int result = min(keepChar,deleteChar);
         mp[key] = result;
         return result;
