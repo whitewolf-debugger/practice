@@ -14,6 +14,7 @@ public:
                 previous = s[i];
             }
         }
+        //count the total occurance
         temp += to_string(count);
         temp += previous;
         return temp;
@@ -26,3 +27,8 @@ public:
         return s;
     }
 };
+/*
+ 
+
+
+*/
