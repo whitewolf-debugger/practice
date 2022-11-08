@@ -15,15 +15,11 @@ public:
                     }
                 }
             } else {
-                if(st.empty()) {
-                    st.push(s[i]);
-                } else {
+                if(st.empty())st.push(s[i]);
+                else {
                     char c = st.top();
-                    if(isupper(c) && tolower(c) == s[i]) {
-                        st.pop();
-                    } else {
-                        st.push(s[i]);
-                    }
+                    if(isupper(c) && tolower(c) == s[i]) st.pop();
+                    else st.push(s[i]);    
                 }
             }
         }
