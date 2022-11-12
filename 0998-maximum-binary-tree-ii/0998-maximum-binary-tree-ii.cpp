@@ -30,3 +30,16 @@ public:
         return root;
     }
 };
+/*
+
+as said first tree is constructed following below given instructions
+1.Create a root node whose value is the maximum value in nums.
+2.Recursively build the left subtree on the subarray prefix to the left of the maximum value.
+3.Recursively build the right subtree on the subarray suffix to the right of the maximum value.
+
+as mentioned in question val is appended at the end of nums. So our only task is to check whether it is greater than root->val. if its greater we will create a new node with value as val and make the first tree as its left subtree. its its less we will recurse in the right subtree.
+
+
+
+
+*/
