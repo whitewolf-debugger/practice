@@ -48,6 +48,7 @@ public:
                     //check the surrounding island with color
                     set<int> nbr;
                     for(auto [dr,dc] : directions) {
+                        //check for all the four directions 
                         int nr = r + dr;
                         int nc = c + dc;
                         if(nr < 0 || nc < 0 || nr >= ROWS || nc >= COLS) continue;
