@@ -16,6 +16,7 @@ public:
         grid[r][c] = islandKey;
         //return the size
         int count = 1;
+        //dfs call for all the 4 directions 
         count += getSize(grid,r + 1 ,c,islandKey);
         count += getSize(grid,r - 1 ,c,islandKey);
         count += getSize(grid,r ,c - 1,islandKey);
