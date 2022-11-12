@@ -38,12 +38,23 @@ public:
 };
 /*
 
-    aacaba
+    a a c | a b a
+    um = {
+        a:2
+        b:1
+    }
+    
+    mp = {
+        a:2
+        c:1
+    }
+    
+    
     1) count the number of letters
-    2) till current traversal count all freq
-    3) reduce the freq in prevmap 
+    2) till current traversal count all freqin new map
+    3) reduce the freq in prevmap as we iterate 
     4) increase in new map 
-
-
+    5) check number of distinct in both maps 
+    
 
 */
