@@ -14,7 +14,7 @@ public:
                 currCost -= abs(s[windowStart] - t[windowStart]);
                 windowStart++;
             }
-            //ans is the maximum length substring with cost
+            //ans is the maximum length substring with cost viz windiowEnd - windowStart + 1 (windowEnd and windowStart are the indexes)
             ans = max(ans, windowEnd - windowStart + 1);
         }
         return ans;
