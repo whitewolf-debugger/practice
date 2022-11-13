@@ -18,11 +18,14 @@ public:
     }
     //do dfs and update parent of everynode along with distance 
     void dfs(int startVertex , int p, int d ,vector<vector<int>> &adj,vector<int> &distance , vector<int> &parent) {
+        //distance is minimum of currentdistance and the newdistance(distance if we follow different path)
         distance[startVertex] = min(distance[startVertex] ,d);
+        //initially the parent is 0  and startvertex is 0 so parent of 0 is 0 . In recursive call it gets updated 
         parent[startVertex] = p;
         for(auto &nbr : adj[startVertex]) {
             //check for valid neighbour to avoid self loop 
             if(nbr == startVertex || nbr == p) continue;
+            //if valid then increase distance visit that neighbor the current node becomes parent and ne startVertex is now neighbor 
             dfs(nbr,startVertex,d+1,adj,distance,parent);
         }
     }
