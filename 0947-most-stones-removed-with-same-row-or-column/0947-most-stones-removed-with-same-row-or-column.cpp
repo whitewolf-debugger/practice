@@ -2,7 +2,7 @@ class Solution {
 public:
     int find(vector<int> &parent , int i) {
         while(parent[i] != i) {
-            i= parent[i];
+            i = parent[i];
         }
         return i;
     }
@@ -18,7 +18,7 @@ public:
             parent[X] = Y;
         } else {
             parent[Y] = X;
-            rank[X]++;
+            rank[X]+=1;
         }
         return true;
     }
