@@ -15,11 +15,11 @@ public:
         for(int hour = 23; hour >=0 && chonk == "";hour--) {
             for(int minutes = 59; minutes >=0 && chonk == "" ; minutes--) {
                 if(isPossible(arr,hour,minutes)) {
-                    chonk.push_back('0' + (hour/10)) ;
-                    chonk.push_back('0' + (hour % 10)) ;
-                    chonk.push_back(':') ;
-                    chonk.push_back('0' + (minutes / 10)) ;
-                    chonk.push_back('0' + (minutes % 10)) ;
+                    chonk += '0' + (hour/10) ;
+                    chonk+= '0' + (hour % 10) ;
+                    chonk+= ':' ;
+                    chonk+= '0' + (minutes / 10) ;
+                    chonk+= '0' + (minutes % 10) ;
                     break;
                 }
             }
