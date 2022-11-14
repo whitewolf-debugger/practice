@@ -11,19 +11,19 @@ public:
         return time == arr;     
     }
     string largestTimeFromDigits(vector<int>& arr) {
-        string chonk = "";
-        for(int hour = 23; hour >=0 && chonk == "";hour--) {
-            for(int minutes = 59; minutes >=0 && chonk == "" ; minutes--) {
+        string result = "";
+        for(int hour = 23; hour >=0 && result == "";hour--) {
+            for(int minutes = 59; minutes >=0 && result == "" ; minutes--) {
                 if(isPossible(arr,hour,minutes)) {
-                    chonk += '0' + (hour/10) ;
-                    chonk+= '0' + (hour % 10) ;
-                    chonk+= ':' ;
-                    chonk+= '0' + (minutes / 10) ;
-                    chonk+= '0' + (minutes % 10) ;
+                    result += '0' + (hour/10) ;
+                    result+= '0' + (hour % 10) ;
+                    result+= ':' ;
+                    result+= '0' + (minutes / 10) ;
+                    result+= '0' + (minutes % 10) ;
                     break;
                 }
             }
         }
-        return chonk;
+        return result;
     }
 };
