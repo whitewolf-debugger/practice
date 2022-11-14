@@ -6,24 +6,32 @@ public:
         }
         return i;
     }
-    bool Unite(vector<int> &parent , int x ,int y) {
+    bool Unite(vector<int> &parent , int x ,int y,vector<int>& rank) {
         int X = find(parent , x);
         int Y = find(parent , y);
         if(X == Y) {
             return false;
         }
-        parent[Y] = X;
+        if(rank[X] > rank[Y]) {
+            parent[Y] = X;
+        } else if(rank[X] < rank[Y]) {
+            parent[X] = Y;
+        } else {
+            parent[Y] = X;
+            rank[X]++;
+        }
         return true;
     }
     int removeStones(vector<vector<int>>& stones) {
         int n = stones.size();
         vector<int> parent(n);
+        vector<int> rank(n,0);
         iota(parent.begin(),parent.end(),0);
         int count = 0;
         for(int i =0 ; i < n;i++) {
             for(int j =i+1; j < n; j++) {
                 if(stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1]) {
-                    if(Unite(parent,i,j)){
+                    if(Unite(parent,i,j,rank)){
                         count++;
                     }
                 }
