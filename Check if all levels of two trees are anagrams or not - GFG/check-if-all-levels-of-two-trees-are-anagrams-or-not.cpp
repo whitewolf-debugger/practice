@@ -86,6 +86,7 @@ class Solution{
         if(!root) return 0;
         return 1+getHeight(root -> left) + getHeight(root -> right);
     }
+    //check if data at every level is an anagram 
     bool isAnagram(vector<int> &a ,vector<int> &b) {
         if(a.size() != b.size()) return false;
         unordered_map<int , int> mp;
