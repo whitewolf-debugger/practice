@@ -11,8 +11,8 @@ public:
             return 0;
         }
         if(cache[r][c][sum%k] != -1) return cache[r][c][sum%k];
-        int right = dp(grid,visited,r+1,c,ROWS,COLS,sum+grid[r][c],k,cache)%mod;
-        int down = dp(grid,visited,r,c+1,ROWS,COLS,sum+grid[r][c],k,cache)%mod;
+        int right = dp(grid,visited,r,c + 1,ROWS,COLS,sum+grid[r][c],k,cache)%mod;
+        int down = dp(grid,visited,r + 1,c,ROWS,COLS,sum+grid[r][c],k,cache)%mod;
         return cache[r][c][sum%k] = (right + down)%mod;
 
     }
