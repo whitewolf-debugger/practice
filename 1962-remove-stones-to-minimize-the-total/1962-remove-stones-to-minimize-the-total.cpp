@@ -1,18 +1,24 @@
 class Solution {
 public:
     int minStoneSum(vector<int>& piles, int k) {
+        
+        //get sum of all the stones in piles
         int sum = accumulate(piles.begin() , piles.end(),0);
         
         priority_queue<int> pq;
-        
+        //push total stones in each pile in max priority queue 
         for(int i =0; i < piles.size(); i++) {
             pq.push(piles[i]);
         }
         int diff = 0;
         while(k--) {
+            //get the number of stones we are removing add to the diff
             diff += floor(pq.top()/2);
+            //get the new number of stones in pile after removing  floor(pq.top()/2) stones from it
             int n = pq.top() - floor(pq.top()/2);
+            //remove the old count of stones 
             pq.pop();
+            //add the current one 
             pq.push(n);
         }
         
