@@ -26,33 +26,44 @@ struct Node
 class Solution {
   public:
     vector<int> maximumValue(Node* node) {
+        //stores the ans 
         vector<int> ans;
-        
+        //used to do level order traversal to get maxAns at every level 
         queue<Node*> pendingNodes;
+        //push the current root in the queue pendingNodes
         pendingNodes.push(node);
         
+        //while the queue isnt empty 
         while(!pendingNodes.empty()){
+            //get the size i.e the total number of element at the given level
             int size = pendingNodes.size();
+            //maxAtcurrent level gets the maximum at current level
             int maxAtCurrLevel = 0;
+            //while size isnt 0 means we are covering all the element at that level
             while(size--) {
+                //get the current node and push the child (left and right) if they are not NULL
                 Node* front = pendingNodes.front();
+                //this helps to detect which is maximum at the current level
                 maxAtCurrLevel = max(maxAtCurrLevel , front -> data);
+                //remove the current element
                 pendingNodes.pop();
+                //as said previously if the left child of front is not null push the left child 
                 if(front -> left) {
                     pendingNodes.push(front -> left);
                 } if(front -> right) {
+                     //as said previously if the right child is not null push the right child 
                     pendingNodes.push(front -> right);
                 }
             }
+            //push the maximum at that level into ans 
             ans.push_back(maxAtCurrLevel);
         }
-        
-        
-        
         return ans;
         //code here
     }
 };
+
+
 
 //{ Driver Code Starts.
 
