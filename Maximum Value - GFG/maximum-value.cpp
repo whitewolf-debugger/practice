@@ -63,7 +63,24 @@ class Solution {
     }
 };
 
+/*
 
+
+  the way we are traversing 
+  
+           --> 
+            2
+          /   \
+          ----->
+         3     1
+        / \   / \
+        --------->
+       4   5  6  7
+
+
+
+
+*/
 
 //{ Driver Code Starts.
 
