@@ -55,7 +55,7 @@ Explanation :
            m -> maxK
            n  -> minK
            
-           ans includes subarray
+           ans includes subarrays
                         { _,_,_
                           m   n 
                         
