@@ -47,5 +47,25 @@ Explanation :
     ans += max(0,min(latestMinIndex, latestMaxIndex) - badNumberIndex);
     i.e the subarrayincluding minK and maxK + including each element between
     min(latestMinIndex, latestMaxIndex)  and badNumberIndex one by one 
+    
+    [_,_,_,_,_,_,_,_]
+     b   
+           m   n
+           we are at n currently so at n
+           m -> maxK
+           n  -> minK
+           
+           ans includes { _,_,_
+                          m   n 
+                        
+                         _,_,_,_
+                           m   n
+                           
+                         _,_,_,_,_
+                             m   n
+                        }
+                           
+                         
+        
 
 */
