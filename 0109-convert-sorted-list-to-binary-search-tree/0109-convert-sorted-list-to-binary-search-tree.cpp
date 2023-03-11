@@ -31,7 +31,7 @@ public:
             fast = fast->next->next;
         }
         if(prev) {
-            //DISCONNECTST THE GRAPH IN 2 HALF 
+            //DISCONNECTS THE GRAPH IN 2 HALF 
             //head to node before middle -> null and   middle to end -> null
             prev -> next = NULL;
         }
