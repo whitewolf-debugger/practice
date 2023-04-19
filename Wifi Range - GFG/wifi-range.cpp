@@ -11,9 +11,11 @@ using namespace std;
 class Solution{
     public:
     bool wifiRange(int N, string S, int X){
-        // code here
         for(int i = 0 ;  i< N; i++) {
+            //if we  get a room where wifi is there 
             if(S[i] == '1') {
+                //move left pointer one left and right pointer one right 
+                //set count to 0
                 int L = i - 1;
                 int R = i + 1;
                 int count = 0;
