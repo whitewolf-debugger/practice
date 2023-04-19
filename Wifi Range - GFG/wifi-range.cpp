@@ -11,23 +11,50 @@ using namespace std;
 class Solution{
     public:
     bool wifiRange(int N, string S, int X){
-        string a=S;
-        for(int i=0;i<N;i++){
-            if(S[i]=='1'){
-                for(int j=i-X;j<=i+X;j++){
-                    if(j>=0 && j<N){
-                        a[j]=1;
+        for(int i = 0 ;  i< N; i++) {
+            //if we  get a room where wifi is there 
+            if(S[i] == '1') {
+                //move left pointer one left and right pointer one right 
+                //set count to 0
+                int L = i - 1;
+                int R = i + 1;
+                int count = 0;
+                while((L >= 0 && R < N) && count < X) {
+                    if(S[L] == '0' ) {
+                        S[L] = '2';
                     }
+                    if(S[R] == '0'){
+                        S[R] = '2';
+                    }
+                    L--;
+                    R++;
+                    count++;
+                }
+                while(count < X && L >= 0) {
+                    if(S[L] == '0' ) {
+                        S[L] = '2';
+                    }
+                    L--;
+                    count++;
+                }
+                while(count < X && R < N) {
+                    if(S[R] == '0'){
+                        S[R] = '2';
+                    }
+                    R++;
+                    count++;
                 }
             }
         }
-        for(int i=0;i<N;i++){
-            if(a[i]=='0'){
-                return false;
+        
+        bool ans = true;
+        for(int i = 0 ;  i<N; i++) {
+            if(S[i] == '0') {
+                ans = false;
+                break;
             }
         }
-        return true;
-
+        return ans;
     }
 };
 
