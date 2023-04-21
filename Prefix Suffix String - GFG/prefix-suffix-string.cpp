@@ -35,9 +35,11 @@ class Trie {
         }
         insert(child,word.substr(1));
     }
+    //search in trie if the size of word is 0 then return true
     bool search(TrieNode* root,string word) {
         if(word.size() == 0) return true;
         int idx = word[0] - 'a';
+        //if we are not able to find the current child then return false
         if(root -> children[idx] == NULL) {
             return false;
         } else {
