@@ -81,20 +81,32 @@ class Trie {
 };
 class Solution{
 public:
+    //create trie root
     Trie *root = new Trie();
     int prefixSuffixString(vector<string> &s1,vector<string> s2){
-        // Code here
+        //traverse through all the words in the s1
         for(auto s : s1) {
+            //add it to the root
             root->insert(s);
+            //reverse it and add it to the root
             reverse(s.begin(), s.end());
+            //this we will use to check the prefix 
             root->insert(s);
         }
         int ans = 0;
+        //for every word in s2
+        
         for(auto word: s2) {
+            //1st search for prefix
+            //if it is prefix to any word in s2 (i.e inserted in trie)
+            //then increase count and move next word 
             if(root->search(word) == true) {
                 ans++;
                 continue;
             }
+            //if it is suffix to any word in s2 (i.e inserted in trie)
+            //then reverse the word and then search 
+            //since we have added the word in reverse to trie to check suffix from the end 
             reverse(word.begin(), word.end());
             if(root->search(word) == true) {
                ans++; 
