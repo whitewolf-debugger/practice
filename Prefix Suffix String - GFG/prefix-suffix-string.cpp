@@ -10,7 +10,9 @@ using namespace std;
 class TrieNode {
     public:
     char data;
+    //children pointed of array which stores (TrieNode* (TrieNode pointers))
     TrieNode** children;
+    //is terminal is used to mark the end of a word 
     bool isTerminal;
     TrieNode(int data) {
         this -> data = data;
@@ -24,7 +26,11 @@ class TrieNode {
 class Trie { 
     TrieNode* root;
     void insert(TrieNode* root, string word) {
-        if(word.size() == 0) return;
+        if(word.size() == 0) {
+        //here we donot need is terminal (it has no use in this question still just keeping it)
+            root -> isTerminal = true;
+            return;
+        }
         int idx = word[0] - 'a';
         TrieNode* child ;
         if(root -> children[idx] == NULL) {
@@ -43,17 +49,24 @@ class Trie {
         if(root -> children[idx] == NULL) {
             return false;
         } else {
+            //else return search from next child and and next letter in word to the end 
             return search(root -> children[idx],word.substr(1));
         }
     }
     public:
+    //create trie node with the root node as null node 
     Trie() {
         root = new TrieNode('\0');
     }
+    //insert the word into the trie
     void insert(string word) {
+        //we create a sperate insert function in private since it needs 2 things root + word
         insert(root, word);
     }
+    //search the word in the trie
     bool search(string word) {
+        //we create a sperate searcg function in private since it needs 2 things root + word
+        //to return result
         return search(root, word);
     }
 };
