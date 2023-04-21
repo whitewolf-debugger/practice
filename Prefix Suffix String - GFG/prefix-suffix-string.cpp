@@ -26,19 +26,28 @@ class TrieNode {
 class Trie { 
     TrieNode* root;
     void insert(TrieNode* root, string word) {
+        //base case when all the words have been inserted 
         if(word.size() == 0) {
         //here we donot need is terminal (it has no use in this question still just keeping it)
             root -> isTerminal = true;
             return;
         }
+        //get index of the letter at the 0th index of word 
         int idx = word[0] - 'a';
+        // this stores the child location
         TrieNode* child ;
+        //if there is no child at that position then we need to create and add
         if(root -> children[idx] == NULL) {
+            //create trienode which is child 
             child = new TrieNode(word[0]);
+            //attatch the child to the parent at its index 
             root -> children[idx]  = child;
         } else {
+            //if child is already there then child pointer points to the child 
             child =  root -> children[idx] ;
         }
+        //now using recursion continue inserting from tbhe 1st index of word 
+        //and we are at the child now we will be now searching for children of child 
         insert(child,word.substr(1));
     }
     //search in trie if the size of word is 0 then return true
