@@ -42,7 +42,7 @@ public:
 class Solution{
 public:
     set<string> track;
-    
+    //do dfs and create the preorder string  from the root 
     void dfs(Node *root, string &s) {
         if (!root) return;
         s += to_string(root->data) + ",";
@@ -55,17 +55,21 @@ public:
     
     void helper(Node *root, set<string> &ans) {
         if (!root) return;
+        //do bfs 
         queue<Node*> q;
         q.push(root);
         while (!q.empty()) {
             int size = q.size();
+            //for every node create dfs string and check whether already covered 
             while (size--) {
                 Node* node = q.front();
                 string preorder = "";
                 dfs(node, preorder);
+                //if subtree is there previously add to ans 
                 if (track.find(preorder) != track.end()) {
                     ans.insert(preorder);
                 } else {
+                    //if subtee is not there then insert to track set 
                     track.insert(preorder);
                 }
                 q.pop();
@@ -81,6 +85,7 @@ public:
     int duplicateSubtreeNaryTree(Node *root) {
         set<string> ans;
         helper(root, ans);
+        //ans is size of ans set 
         return ans.size();
     }
 };
