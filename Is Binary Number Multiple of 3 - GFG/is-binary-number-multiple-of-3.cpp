@@ -13,8 +13,11 @@ public:
 	    
 	    int n = s.size();
 	    int sum = 0;
+	    //we want to traverse from right to left 
 	    reverse(s.begin(),s.end());
 	    for(int i = 0 ; i < n; i++) {
+	        //if 1 is at even position add 1 
+	        // if 1 is at odd position add 2 to the sum 
 	        if(s[i] == '1') {
 	            if(i % 2 == 0) {
 	                sum += 1;
@@ -28,25 +31,19 @@ public:
 
 };
 /*
-                        
-    0   0   0   1   1                       
+    0   0   0   2   1
+    0   0   0   1   1   sum = 3 % 3 = 0                
+   
+   
+    0   2   0   0   1 
+    0   1   0   0   1   sum = 3  % 3 =0
     
-    0   1   0   0   1
-    
-    0   0   1   1   1
-    
-    0   1   1   0   0
-    
-    1   1   0   0   0
-    
-    1   1   1   1   0
-
-
+   
 
     0   0   0   0   1
+    0   0   0   0   1    sum = 1 % 3 != 0
     
-    0   0   0   1   0
-    
+  
     
 
 
