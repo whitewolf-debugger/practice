@@ -32,9 +32,11 @@ public:
 class Solution {
   public:
     int dp(int n, vector<int> &prices ,bool buy, int i,vector<vector<int>> &cache) {
+        //base case when the index i exceeds the price array then we simply return -
         if(i >= prices.size()) {
             return false;
         }
+        //memoization step
         if(cache[buy][i] != -1) return cache[buy][i];
         //we can buy only when buy is true
         int ans = 0;
