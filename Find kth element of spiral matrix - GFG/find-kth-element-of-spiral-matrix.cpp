@@ -11,13 +11,7 @@ class Solution
     int findK(int a[MAX][MAX],int n,int m,int k)
     {
  		// Your code goes here.
- 		int L = 0;
- 		int R = m - 1;
- 		int U = 0; 
- 		int D = n - 1;
- 		int count = 0;
- 		int ans = 0;
- 		int r, c;
+ 		int L = 0 , R = m - 1, U = 0, D = n - 1, count = 0, ans = 0,r, c;
  		while(L <= R && U <= D) {
  		    r = U;
  		    for(c = L ; c <= R; c++) {
